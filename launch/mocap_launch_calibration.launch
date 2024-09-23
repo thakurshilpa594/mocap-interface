@@ -1,0 +1,8 @@
+<launch>
+
+    <node name="jaco_kinematics" pkg="mocap_interface" type="jaco_kinematics.py"/>
+    <node name="prop_manager" pkg="mocap_interface" type="prop_manager.py"/>
+    <node name="mocap_driver_short" pkg="mocap_interface" type="mocap_driver_short.py"/>    
+
+
+</launch>

@@ -1,0 +1,26 @@
+<launch>
+
+  <arg name="use_trajectory_controller" default="false"/>
+  <arg name="simulate_robot" default="true"/>
+  <arg name="control_robot" default="true"/>
+  <arg name="node_start_delay" default="3.0" />  
+
+  <!-- include the mocap_interface gazebo launch file -->
+  <!-- <include file="$(find mocap_interface)/launch/robot_launch.launch">
+    <arg name="use_trajectory_controller" value="$(arg use_trajectory_controller)"/>
+  </include> -->
+  
+  <!-- include the kinova-ros gazebo launch file -->
+  <include file="$(find kinova_gazebo)/launch/robot_launch.launch">
+    <arg name="use_trajectory_controller" value="$(arg use_trajectory_controller)"/>
+  </include>
+ 
+
+  <!-- start up all the nodes for controlling the jaco arm -->
+  <node name="jaco_gazebo" pkg="mocap_interface" type="jaco_gazebo.py"/>
+  <node name="jaco_sim" pkg="mocap_interface" type="jaco_sim.py" if="$(arg simulate_robot)"/>
+  <node name="jaco_kinematics" pkg="mocap_interface" type="jaco_kinematics.py" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " if="$(arg control_robot)"/>
+  <node name="path_planner" pkg="mocap_interface" type="path_planner.py"/>
+  <node name="prop_manager" pkg="mocap_interface" type="prop_manager.py"/>
+</launch>
+

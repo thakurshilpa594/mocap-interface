@@ -1,0 +1,45 @@
+<launch>
+    <arg name="node_namespace" default="apriltag_ros_continuous_node" />
+    <arg name="camera_namespace" default="camera" />
+
+    <arg name="manager" default="/manager" /> <!-- Must be globally qualified -->
+    <arg name="respawn" default="false" />
+
+    <arg name="tag_view" default="true" />
+    <arg name="show_webcam" default="true" />
+  
+    <arg if="$(arg respawn)" name="bond" value="" />
+    <arg unless="$(arg respawn)" name="bond" value="--no-bond" />
+
+    <!-- Set parameters -->
+    <rosparam ns="$(arg node_namespace)" command="load" file="$(find mocap_interface)/config/settings.yaml" />
+    <rosparam ns="$(arg node_namespace)" command="load" file="$(find mocap_interface)/config/tags.yaml" />
+
+    <node name="$(arg camera_namespace)" pkg="cv_camera" type="cv_camera_node" output="screen">
+        <param name="device_id" value="2" />
+        <param name="image_width" value="640" />
+        <param name="image_height" value="480" />
+        <!-- <param name="camera_info_url" value="file://$(find mocap_interface)/config/calibration_c525.yaml" /> -->
+        <param name="camera_info_url" value="file://$(find mocap_interface)/config/calibration_c920.yaml" />
+    </node>
+
+    <node ns="$(arg camera_namespace)" name="image_proc" pkg="image_proc" type="image_proc" output="screen">
+        <remap from="image_raw" to="/$(arg camera_namespace)/image_raw" />
+        <remap from="camera_info" to="/$(arg camera_namespace)/camera_info" />
+    </node>
+  
+    <node name="$(arg node_namespace)" pkg="apriltag_ros" type="apriltag_ros_continuous_node" clear_params="true" output="screen" >
+        <!-- Remap topics from those used in code to those on the ROS network -->
+        <remap from="image_rect" to="/$(arg camera_namespace)/image_rect" />
+        <remap from="camera_info" to="/$(arg camera_namespace)/camera_info" />
+
+        <param name="camera_frame" type="str" value="camera" />
+        <param name="publish_tag_detections_image" type="bool" value="true" />      <!-- default: false -->
+    </node>
+
+    <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen" if="$(arg show_webcam)">
+        <remap from="image" to="/tag_detections_image" if="$(arg tag_view)"/>
+        <remap from="image" to="$(arg camera_namespace)/image_raw" unless="$(arg tag_view)"/>
+        <param name="autosize" value="true" />
+    </node>
+</launch>

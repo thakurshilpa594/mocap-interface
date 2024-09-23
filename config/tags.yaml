@@ -1,0 +1,170 @@
+# # Definitions of tags to detect
+#
+# ## General remarks
+#
+# - All length in meters
+# - Ellipsis (...) signifies that the previous element can be repeated multiple times.
+#
+# ## Standalone tag definitions
+# ### Remarks
+#
+# - name is optional
+#
+# ### Syntax
+#
+# standalone_tags:
+#   [
+#     {id: ID, size: SIZE, name: NAME},
+#     ...
+#   ]
+standalone_tags:
+  [
+    # {id: 1, size: 0.080},
+    # {id: 2, size: 0.080},
+    # {id: 3, size: 0.080},
+    # {id: 4, size: 0.039},
+    # {id: 5, size: 0.039},
+    # {id: 6, size: 0.039},
+    # {id: 7, size: 0.039},
+    # {id: 8, size: 0.039},
+    # {id: 9, size: 0.039},
+    # {id: 10, size: 0.039},
+    # {id: 11, size: 0.039},
+    # {id: 12, size: 0.039},
+    # {id: 13, size: 0.039},
+    # {id: 14, size: 0.039},
+    # {id: 15, size: 0.039},
+    # {id: 16, size: 0.039},
+    # {id: 17, size: 0.039},
+    # {id: 18, size: 0.039},
+    # {id: 19, size: 0.039},
+    # {id: 20, size: 0.039},
+    # {id: 21, size: 0.039},
+    # {id: 22, size: 0.039},
+    # {id: 23, size: 0.039},
+    # {id: 24, size: 0.039}
+  ]
+# ## Tag bundle definitions
+# ### Remarks
+#
+# - name is optional
+# - x, y, z have default values of 0 thus they are optional
+# - qw has default value of 1 and qx, qy, qz have default values of 0 thus they are optional
+#
+# ### Syntax
+#
+# tag_bundles:
+#   [
+#     {
+#       name: 'CUSTOM_BUNDLE_NAME',
+#       layout:
+#         [
+#           {id: ID, size: SIZE, x: X_POS, y: Y_POS, z: Z_POS, qw: QUAT_W_VAL, qx: QUAT_X_VAL, qy: QUAT_Y_VAL, qz: QUAT_Z_VAL},
+#           ...
+#         ]
+#     },
+#     ...
+#   ]
+tag_bundles:
+  [
+    {
+      name: 'robot',
+      layout:
+        [
+          {id: 1, size: 0.080, x: 0.033, y: -0.089, z: 0.077, qw: 0.654383, qx: 0.6266,   qy: 0.295208, qz: 0.303327},
+          {id: 2, size: 0.080, x: 0.065, y:  0.0,   z: 0.072, qw: 0.5,      qx: 0.5,      qy: 0.5,      qz: 0.5},
+          {id: 3, size: 0.080, x: 0.032, y:  0.089, z: 0.076, qw: 0.309998, qx: 0.301002, qy: 0.62347,  qz: 0.651601}
+        ]
+    },
+
+    {
+      name: 'g_block2in_1',
+      layout:
+        [
+          {id: 4, size: 0.039, x: 0.0, y: 0.0,    z:  0.0248, qw: 1.0,       qx:  0.0,       qy: 0.0, qz: 0.0},
+          {id: 5, size: 0.039, x: 0.0, y: 0.0248, z:  0.0,    qw: 0.7071068, qx: -0.7071068, qy: 0.0, qz: 0.0},
+          {id: 6, size: 0.039, x: 0.0, y: 0.0,    z: -0.0248, qw: 0.0,       qx:  0.0,       qy: 1.0, qz: 0.0}
+        ]
+    },
+
+    {
+      name: 'p_bin_1',
+      layout:
+        [
+          # bin dimensions:    x: 0.290   y: 0.196   z: 0.121
+          {id: 7, size: 0.039, x: 0.149,  y: 0.0418, z: 0.0895, qw: 0.5,       qx: 0.5,       qy: 0.5,       qz: 0.5},
+          {id: 8, size: 0.039, x: 0.1313, y: 0.0843, z: 0.0895, qw: 0.2705981, qx: 0.2705981, qy: 0.6532815, qz: 0.6532815},
+          {id: 9, size: 0.039, x: 0.0888, y: 0.102,  z: 0.0895, qw: 0.0,       qx: 0.0,       qy: 0.7071068, qz: 0.7071068}
+        ]
+        # [
+        #   # bin dimensions:    x: 0.290   y: 0.196   z: 0.121
+        #   {id: 7, size: 0.039, x: 0.1490, y: 0.0418, z: 0.0255, qw: 0.5,       qx: 0.5,       qy: 0.5,       qz: 0.5},
+        #   {id: 8, size: 0.039, x: 0.1313, y: 0.0843, z: 0.0255, qw: 0.2705981, qx: 0.2705981, qy: 0.6532815, qz: 0.6532815},
+        #   {id: 9, size: 0.039, x: 0.0888, y: 0.1020, z: 0.0255, qw: 0.0,       qx: 0.0,       qy: 0.7071068, qz: 0.7071068}
+        # ]
+    },
+
+    {
+      name: 'p_bin_2',
+      layout:
+        # [
+        #   # bin dimensions:    x: 0.290   y: 0.196   z: 0.121
+        #   {id: 10, size: 0.039, x: 0.149,  y: 0.0418, z: 0.0895, qw: 0.5,       qx: 0.5,       qy: 0.5,       qz: 0.5},
+        #   {id: 11, size: 0.039, x: 0.1313, y: 0.0843, z: 0.0895, qw: 0.2705981, qx: 0.2705981, qy: 0.6532815, qz: 0.6532815},
+        #   {id: 12, size: 0.039, x: 0.0888, y: 0.1020, z: 0.0895, qw: 0.0,       qx: 0.0,       qy: 0.7071068, qz: 0.7071068}
+        # ]
+        [
+          # bin dimensions:    x: 0.290   y: 0.196   z: 0.121
+          {id: 10, size: 0.039, x: 0.1490, y: 0.0418, z: 0.0255, qw: 0.5,       qx: 0.5,       qy: 0.5,       qz: 0.5},
+          {id: 11, size: 0.039, x: 0.1313, y: 0.0843, z: 0.0255, qw: 0.2705981, qx: 0.2705981, qy: 0.6532815, qz: 0.6532815},
+          {id: 12, size: 0.039, x: 0.0888, y: 0.1020, z: 0.0255, qw: 0.0,       qx: 0.0,       qy: 0.7071068, qz: 0.7071068}
+        ]
+    },
+
+    {
+      name: 'p_bin_3',
+      layout:
+        # [
+        #   # bin dimensions:    x: 0.290   y: 0.196   z: 0.121
+        #   {id: 16, size: 0.039, x: 0.149,  y: 0.0418, z: 0.0895, qw: 0.5,       qx: 0.5,       qy: 0.5,       qz: 0.5},
+        #   {id: 17, size: 0.039, x: 0.1313, y: 0.0843, z: 0.0895, qw: 0.2705981, qx: 0.2705981, qy: 0.6532815, qz: 0.6532815},
+        #   {id: 18, size: 0.039, x: 0.0888, y: 0.1020, z: 0.0895, qw: 0.0,       qx: 0.0,       qy: 0.7071068, qz: 0.7071068}
+        # ]
+        [
+          # bin dimensions:    x: 0.290   y: 0.196   z: 0.121
+          {id: 16, size: 0.039, x: 0.1490, y: 0.0418, z: 0.0255, qw: 0.5,       qx: 0.5,       qy: 0.5,       qz: 0.5},
+          {id: 17, size: 0.039, x: 0.1313, y: 0.0843, z: 0.0255, qw: 0.2705981, qx: 0.2705981, qy: 0.6532815, qz: 0.6532815},
+          {id: 18, size: 0.039, x: 0.0888, y: 0.1020, z: 0.0255, qw: 0.0,       qx: 0.0,       qy: 0.7071068, qz: 0.7071068}
+        ]
+    },
+
+    {
+      name: 'o_box1_1',
+      layout:
+        [
+          # bin dimensions:    x: 0.203   y: 0.206   z: 0.293
+          {id: 14, size: 0.039, x: 0.1015, y: 0.0780, z: 0.1215, qw: 0.5,       qx: 0.5,       qy: 0.5,       qz: 0.5},
+          {id: 15, size: 0.039, x: 0.0765, y: 0.1030, z: 0.1215, qw: 0.0,       qx: 0.0,       qy: 0.7071068, qz: 0.7071068}
+        ]
+    },
+
+    {
+      name: 'o_post_1',
+      layout:
+        [
+          # {id: 19, size: 0.039, x: 0.0270, y: -0.0440, z: -0.2590, qw: 0.655816, qx: 0.62526,  qy: 0.3017,   qz: 0.296534},
+          {id: 20, size: 0.039, x: 0.0450, y:  0.0000, z: -0.2650, qw: 0.5,      qx: 0.5,      qy: 0.5,      qz: 0.5}
+          # {id: 21, size: 0.039, x: 0.0320, y:  0.0440, z: -0.2560, qw: 0.304277, qx: 0.303401, qy: 0.627461, qz: 0.64935}
+        ]
+    },
+
+    {
+      name: 'o_post_2',
+      layout:
+        [
+          # {id: 22, size: 0.039, x: 0.029,  y: -0.043,  z: -0.258,  qw: 0.659922, qx: 0.624479, qy: 0.290847, qz: 0.299895},
+          {id: 23, size: 0.039, x: 0.0450, y:  0.0000, z: -0.2650, qw: 0.5,      qx: 0.5,      qy: 0.5,      qz: 0.5}
+          # {id: 24, size: 0.039, x: 0.028,  y:  0.044,  z: -0.26,   qw: 0.311869, qx: 0.30275,  qy: 0.62586,  qz: 0.647595}
+        ]
+    }
+  ]

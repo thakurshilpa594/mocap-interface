@@ -1,0 +1,4 @@
+<launch>
+    <node name="glove_driver" pkg="mocap_interface" type="glove_driver.py"/>
+    <node name="gripper_driver" pkg="mocap_interface" type="gripper_driver.py" output="screen"/>
+</launch>

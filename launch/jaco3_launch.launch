@@ -1,0 +1,10 @@
+<launch>
+    <!-- include real robot driver launch file -->
+    <include file="$(find kortex_driver)/launch/kortex_driver.launch">
+        <arg name="gripper" value="robotiq_2f_85"/>
+        <arg name="start_moveit" value="false"/>
+        <arg name="start_rviz" value="false"/>
+        <arg name="cyclic_data_publish_rate" default="40"/>
+    </include>
+</launch>
+

@@ -1,0 +1,19 @@
+<launch>
+
+
+
+    <!-- <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
+    <param name="port"              type="string"               value="/dev/ttyACM0"/>
+    <param name="baud"              type="int"                  value="57600"/>
+    </node> -->
+
+
+    <!-- <node name="trajectory_data_collect" pkg="mocap_interface" type="trajectory_data_collect.py"/> -->
+    <!-- <node name="force_data_collect" pkg="mocap_interface" type="force_data_collect.py"/> -->
+    <!-- <node name="mocap_driver_short" pkg="mocap_interface" type="mocap_driver.py"/> -->
+    <node name="collect_data" pkg="mocap_interface" type="collect_data.py" output="screen"/>
+    <!-- <node name="user_to_robot_map" pkg="mocap_interface" type="user_to_robot_map.py"/> -->
+
+
+
+</launch>

@@ -1,0 +1,6 @@
+<launch>
+    
+    <node name="path_planner" pkg="mocap_interface" type="path_planner.py"/>
+
+
+</launch>

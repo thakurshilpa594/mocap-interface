@@ -1,0 +1,6 @@
+string object
+string name
+geometry_msgs/Pose pose
+string type
+---
+bool success
