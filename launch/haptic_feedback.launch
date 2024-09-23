@@ -4,7 +4,7 @@
 
     <!-- ROS nodes for reading sensor data and generating haptic feedback -->
     <!-- <node name="gripper_sensor_filter" pkg="mocap_interface" type="gripper_sensor_filter.py"/> -->
-    <!-- <node name="haptic_driver" pkg="mocap_interface" type="haptic_driver.py" output="screen"/> -->
+    <node name="haptic_driver" pkg="mocap_interface" type="haptic_driver.py" output="screen"/>
 
     <!-- Backpack 2 with Key Studio Arduino Mega 2560 -->
     <!-- <node name="serial_node_ttyUSB1" pkg="rosserial_python" type="serial_node.py"> <param name="port" type="string" value="/dev/ttyUSB1"/> </node> -->
